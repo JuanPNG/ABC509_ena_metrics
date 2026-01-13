@@ -1,9 +1,10 @@
 # Examples on how to run this code
 
-from dependencies.genome_metrics_client import get_assembly_metrics, build_bq_record
+# from dependencies.genome_metrics_client import get_assembly_metrics, build_bq_record
+from dependencies import genome_metrics_client as gmc
 
 accession = "GCA_964035705"
-example = get_assembly_metrics(accession)
+example = gmc.get_assembly_metrics(accession)
 print("All the assembly metrics:")
 print(example.model_dump())
 print("Just the scaffold N50:")
@@ -19,5 +20,5 @@ record = {
 accession = record["accession"]
 
 print("Record ready to be merged into a biodiversity data ingestion pipeline record:")
-ena_genome_metrics = build_bq_record(accession)
+ena_genome_metrics = gmc.build_bq_record(accession)
 print(ena_genome_metrics)
