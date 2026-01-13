@@ -94,7 +94,13 @@ pipeline_record["assembly_metrics_error"] = ena_fragment.get("assembly_metrics_e
 
 ## Assembly metrics schema
 
+Assembly quality metrics are grouped into **tiers** to reflect their relative importance
+and typical usage in downstream analyses.
+
 ### Tier 1 — Core usability
+
+**Tier 1** metrics capture core assembly usability. These are the minimum indicators
+  needed to decide whether an assembly is broadly suitable for most analyses.
 
 * assembly_level 
 * ungapped_length 
@@ -103,6 +109,10 @@ pipeline_record["assembly_metrics_error"] = ena_fragment.get("assembly_metrics_e
 
 ### Tier 2 — Quality refinement
 
+**Tier 2** metrics provide additional resolution on assembly quality and contiguity.
+  They are commonly used for comparative evaluation, filtering, and quality control
+  beyond a simple pass/fail assessment.
+
 * contig_n50 
 * contig_count 
 * coverage 
@@ -110,6 +120,10 @@ pipeline_record["assembly_metrics_error"] = ena_fragment.get("assembly_metrics_e
 * unspanned_gaps
 
 ### Tier 3 — Detailed contiguity
+
+**Tier 3** metrics offer fine-grained diagnostics intended for detailed inspection
+  and troubleshooting. They are useful for understanding assembly structure but are
+  not required for most routine analyses.
 
 * contig_l50 
 * scaffold_l50 
